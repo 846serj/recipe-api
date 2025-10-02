@@ -21,10 +21,14 @@ try:
     FULL_SYSTEM_AVAILABLE = True
     print("Full recipe system loaded successfully")
 except ImportError as e:
-    print(f"Full system not available: {e}")
+    print(f"Full system not available (ImportError): {e}")
+    import traceback
+    traceback.print_exc()
     FULL_SYSTEM_AVAILABLE = False
 except Exception as e:
     print(f"Error loading full system: {e}")
+    import traceback
+    traceback.print_exc()
     FULL_SYSTEM_AVAILABLE = False
 
 app = Flask(__name__)
