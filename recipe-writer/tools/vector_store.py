@@ -1,6 +1,9 @@
 import faiss
 import numpy as np
-from config import *
+import os
+
+# Use environment variables instead of config file
+FAISS_INDEX_FILE = os.environ.get("FAISS_INDEX_FILE", "data/recipes.index")
 
 def build_faiss_index(recipes):
     dimension = len(recipes[0]["embedding"])

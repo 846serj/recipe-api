@@ -1,6 +1,10 @@
 from openai import OpenAI
-from config import *
 import re
+import os
+
+# Use environment variables instead of config file
+OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
+LLM_MODEL = os.environ.get("LLM_MODEL", "gpt-4-turbo")
 
 client = OpenAI(api_key=OPENAI_API_KEY)
 

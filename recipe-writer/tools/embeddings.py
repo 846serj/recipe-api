@@ -2,7 +2,11 @@ import json
 import time
 import os
 from openai import OpenAI
-from config import *
+
+# Use environment variables instead of config file
+OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
+EMBEDDING_MODEL = os.environ.get("EMBEDDING_MODEL", "text-embedding-3-small")
+BATCH_SIZE = int(os.environ.get("BATCH_SIZE", "100"))
 
 client = OpenAI(api_key=OPENAI_API_KEY)
 

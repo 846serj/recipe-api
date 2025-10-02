@@ -1,6 +1,12 @@
 import requests
 import json
-from config import RECIPES_JSON, AIRTABLE_API_KEY, AIRTABLE_BASE_ID, AIRTABLE_TABLE_NAME
+import os
+
+# Use environment variables instead of config file
+RECIPES_JSON = os.environ.get("RECIPES_JSON", "data/recipes.json")
+AIRTABLE_API_KEY = os.environ.get("AIRTABLE_API_KEY")
+AIRTABLE_BASE_ID = os.environ.get("AIRTABLE_BASE_ID", "appa4SaUbDRFYM42O")
+AIRTABLE_TABLE_NAME = os.environ.get("AIRTABLE_TABLE_NAME", "Molly's View")
 
 HEADERS = {"Authorization": f"Bearer {AIRTABLE_API_KEY}"}
 

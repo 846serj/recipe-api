@@ -1,7 +1,12 @@
 from openai import OpenAI
 import numpy as np
 import faiss
-from config import *
+import os
+
+# Use environment variables instead of config file
+OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
+EMBEDDING_MODEL = os.environ.get("EMBEDDING_MODEL", "text-embedding-3-small")
+TOP_K = int(os.environ.get("TOP_K", "10"))
 
 client = OpenAI(api_key=OPENAI_API_KEY)
 
