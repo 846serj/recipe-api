@@ -1,0 +1,13 @@
+# Generated files
+data/recipes_with_embeddings.json
+data/recipes.index
+
+# API Keys (if you accidentally commit them)
+config.py
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python

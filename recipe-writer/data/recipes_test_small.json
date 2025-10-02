@@ -1,0 +1,23 @@
+[
+  {
+    "title": "Crispy Panko Fish Sandwich",
+    "description": "The Fish Sandwich features crispy fish fillets served on a bun with fresh toppings and a tangy sauce. It's a simple and satisfying meal perfect for lunch or dinner.",
+    "category": "Fish, Main Dish, Recipes, Seafood",
+    "tags": ["fish", "sandwich", "crispy"],
+    "url": "https://example.com/fish-sandwich"
+  },
+  {
+    "title": "Grilled Salmon with Lemon",
+    "description": "Perfect summer grilling recipe with fresh herbs and citrus",
+    "category": "Summer, Seafood",
+    "tags": ["grill", "seafood", "healthy", "lemon"],
+    "url": "https://example.com/grilled-salmon"
+  },
+  {
+    "title": "BBQ Chicken Thighs",
+    "description": "Juicy chicken thighs with homemade BBQ sauce",
+    "category": "Summer, Main Dish",
+    "tags": ["grill", "chicken", "bbq", "sauce"],
+    "url": "https://example.com/bbq-chicken"
+  }
+]
