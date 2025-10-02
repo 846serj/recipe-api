@@ -10,7 +10,11 @@ import os
 import sys
 
 # Add the recipe-writer directory to Python path
-sys.path.append(os.path.join(os.path.dirname(__file__), 'recipe-writer'))
+recipe_writer_path = os.path.join(os.path.dirname(__file__), 'recipe-writer')
+sys.path.append(recipe_writer_path)
+
+# Change to recipe-writer directory so relative paths work
+os.chdir(recipe_writer_path)
 
 try:
     from tools import airtable_sync, embeddings, vector_store, retrieval, generator
@@ -42,15 +46,24 @@ def load_recipe_data():
     if recipes_cache is None:
         try:
             print("Loading recipes with embeddings...")
+            print(f"Current working directory: {os.getcwd()}")
+            print(f"Looking for embeddings file: {os.path.join(os.getcwd(), 'data/recipes_with_embeddings.json')}")
+            print(f"File exists: {os.path.exists('data/recipes_with_embeddings.json')}")
+            
             recipes_cache = embeddings.load_embeddings()
             
             print("Loading FAISS index...")
+            print(f"Looking for FAISS index: {os.path.join(os.getcwd(), 'data/recipes.index')}")
+            print(f"Index file exists: {os.path.exists('data/recipes.index')}")
+            
             index_cache = vector_store.load_faiss_index()
             id_to_recipe_cache = vector_store.get_id_to_recipe(recipes_cache)
             
             print(f"Loaded {len(recipes_cache)} recipes")
         except Exception as e:
             print(f"Error loading recipe data: {e}")
+            import traceback
+            traceback.print_exc()
             print("Falling back to simple generation")
             return None, None, None
     

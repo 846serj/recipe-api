@@ -65,7 +65,8 @@ Format the response as HTML paragraphs using <p> tags.
     
     # Ensure it's wrapped in HTML if not already
     if not content.strip().startswith('<'):
-        content = f"<p>{content.replace('\n\n', '</p><p>')}</p>"
+        content = content.replace('\n\n', '</p><p>')
+        content = f"<p>{content}</p>"
     
     return f"<h1>{query}</h1>\n{content}"
 
@@ -100,7 +101,8 @@ Format the response as HTML paragraphs using <p> tags.
         
         # Ensure it's wrapped in HTML if not already
         if not content.strip().startswith('<'):
-            content = f"<p>{content.replace('\n\n', '</p><p>')}</p>"
+            content = content.replace('\n\n', '</p><p>')
+            content = f"<p>{content}</p>"
         
         # Add image if available (with fallback placeholder)
         image_html = ""
@@ -139,7 +141,8 @@ Format the response as HTML paragraphs using <p> tags.
     
     # Ensure it's wrapped in HTML if not already
     if not content.strip().startswith('<'):
-        content = f"<p>{content.replace('\n\n', '</p><p>')}</p>"
+        content = content.replace('\n\n', '</p><p>')
+        content = f"<p>{content}</p>"
     
     return f"<h2>Cooking Tips for {cuisine.title()} Cuisine</h2>\n{content}"
 
@@ -164,7 +167,8 @@ Format the response as HTML paragraphs using <p> tags.
     
     # Ensure it's wrapped in HTML if not already
     if not content.strip().startswith('<'):
-        content = f"<p>{content.replace('\n\n', '</p><p>')}</p>"
+        content = content.replace('\n\n', '</p><p>')
+        content = f"<p>{content}</p>"
     
     return content
 
