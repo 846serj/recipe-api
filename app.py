@@ -19,6 +19,9 @@ try:
 except ImportError as e:
     print(f"Full system not available: {e}")
     FULL_SYSTEM_AVAILABLE = False
+except Exception as e:
+    print(f"Error loading full system: {e}")
+    FULL_SYSTEM_AVAILABLE = False
 
 app = Flask(__name__)
 CORS(app)
@@ -33,6 +36,7 @@ def load_recipe_data():
     global recipes_cache, index_cache, id_to_recipe_cache
     
     if not FULL_SYSTEM_AVAILABLE:
+        print("Full system not available, skipping recipe data load")
         return None, None, None
         
     if recipes_cache is None:
@@ -47,6 +51,7 @@ def load_recipe_data():
             print(f"Loaded {len(recipes_cache)} recipes")
         except Exception as e:
             print(f"Error loading recipe data: {e}")
+            print("Falling back to simple generation")
             return None, None, None
     
     return recipes_cache, index_cache, id_to_recipe_cache
